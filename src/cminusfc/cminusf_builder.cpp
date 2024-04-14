@@ -396,7 +396,6 @@ Value *CminusfBuilder::visit(ASTDef &node)
         {
             if (scope.in_global())
             {
-                LOG(ERROR) <<"o1o2o3";
                 Constant *zero = nullptr;
                 if (current_type == TYPE_INT)
                     zero = ConstantZero::get(array_type, module.get());
@@ -417,6 +416,7 @@ Value *CminusfBuilder::visit(ASTDef &node)
         {
             if (scope.in_global())
             {
+                LOG(ERROR) <<"o1o2o3";
                 auto ori_const = node.initval_list->is_const;
                 node.initval_list->is_const = true;
                 node.initval_list->accept(*this);

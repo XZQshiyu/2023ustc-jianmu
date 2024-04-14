@@ -982,9 +982,9 @@ void CodeGen::run() {
                     append_inst(".size", {global.get_name(), std::to_string(size)},
                                 ASMInstruction::Atrribute);
                     append_inst(global.get_name(), ASMInstruction::Label);
-                    
+                    LOG(ERROR) << global.get_init()->print();
                     //返回的是一个数组类型，初始值可不一定是
-                    if(dynamic_cast<ConstantZero *>(global.get_init())){
+                    if((global.get_init()->print())==std::string(" zeroinitializer")){
                         //如果是常数0
                         // for(int i=0;i<size/4;i++){
                         //     append_inst(".word", {std::to_string(0)},
